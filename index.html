@@ -3,145 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ghar Ka Swad | Pure Veg Cloud Kitchen</title>
+    <title>Ghar Ka Swad | Pure Veg Professional Cloud Kitchen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2d6a4f; /* Forest Green */
-            --accent: #fb8500;  /* Saffron Orange */
-            --light: #fefae0;   /* Creamy Background */
-            --dark: #1b4332;
+            --primary: #1b4332; /* Deep Professional Green */
+            --accent: #f97316;  /* Vibrant Energy Orange */
+            --text-dark: #1f2937;
+            --bg-light: #f9fafb;
+            --white: #ffffff;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
+        * { box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            background-color: var(--bg-light); 
+            color: var(--text-dark);
+            scroll-behavior: smooth;
         }
 
-        header {
-            background: white;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); }
 
+        /* Hero Section */
         .hero {
-            padding: 60px 20px;
-            text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80');
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
-            color: white;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
         }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; letter-spacing: -1px; }
+        .hero p { font-size: 1.2rem; max-width: 600px; opacity: 0.9; }
 
-        .hero h1 { font-size: 3rem; margin: 0; }
-        .hero p { font-size: 1.2rem; }
-
-        .btn {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            margin-top: 20px;
+        /* Menu Section */
+        .section-title { text-align: center; margin: 4rem 0 2rem; font-size: 2rem; }
+        .menu-container {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            padding: 0 20px;
+        }
+        .menu-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
             transition: 0.3s;
         }
+        .menu-card:hover { transform: translateY(-5px); }
+        .menu-card h3 { color: var(--primary); border-bottom: 2px solid #eee; padding-bottom: 10px; }
 
-        .btn:hover { transform: scale(1.05); background: #e67e00; }
+        .item { display: flex; justify-content: space-between; margin: 15px 0; font-weight: 500; }
+        .item span { color: #6b7280; font-size: 0.9rem; font-weight: 400; }
 
-        .container { max-width: 1000px; margin: auto; padding: 40px 20px; }
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .category-card {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            border-left: 5px solid var(--primary);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        .category-card h3 { color: var(--primary); margin-top: 0; }
-
-        footer {
-            background: var(--dark);
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
             color: white;
-            text-align: center;
-            padding: 40px;
-            margin-top: 50px;
-        }
-
-        .pure-veg-dot {
-            height: 15px;
-            width: 15px;
-            border: 2px solid green;
-            display: inline-flex;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
             align-items: center;
-            justify-content: center;
-            margin-right: 5px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: 0.3s;
         }
-        .pure-veg-dot::after {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: green;
-            border-radius: 50%;
+        .whatsapp-float:hover { transform: scale(1.05); background-color: #128c7e; }
+        .whatsapp-float i { margin-right: 10px; font-style: normal; font-size: 1.4rem; }
+
+        footer { background: var(--primary); color: white; padding: 3rem 0; text-align: center; margin-top: 5rem; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .whatsapp-float { bottom: 20px; right: 20px; padding: 12px 20px; font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h2 style="margin:0; color: var(--primary);">🏡 Ghar Ka Swad</h2>
-    <p style="margin:0; font-size: 0.9rem;">Pure Veg | Indian & Western</p>
-</header>
+<nav>
+    <div class="logo">Ghar Ka Swad</div>
+    <div style="font-size: 0.8rem; font-weight: 600; border: 1px solid #22c55e; color: #16a34a; padding: 4px 10px; border-radius: 4px;">100% PURE VEG</div>
+</nav>
 
 <section class="hero">
-    <h1>Tadka with a Twist</h1>
-    <p>Homestyle Pure Veg goodness, delivered to your doorstep.</p>
-    <a href="#menu" class="btn">View Menu</a>
+    <h1>Ghar Ka Swad</h1>
+    <p>Premium Pure Veg Cloud Kitchen. Blending traditional Indian soul food with modern Western classics.</p>
 </section>
 
-<div class="container" id="menu">
-    <h2 style="text-align: center;">Our Signature Menu</h2>
-    <div class="menu-grid">
-        <div class="category-card">
-            <h3>🇮🇳 Indian Comforts</h3>
-            <p><div class="pure-veg-dot"></div> <b>Paneer Butter Masala</b> - ₹220</p>
-            <p><div class="pure-veg-dot"></div> <b>Mom's Makhani Dal</b> - ₹160</p>
-            <p><div class="pure-veg-dot"></div> <b>Shahi Jeera Rice</b> - ₹100</p>
-        </div>
+<h2 class="section-title">Explore Our Menu</h2>
 
-        <div class="category-card">
-            <h3>🍕 Western Classics</h3>
-            <p><div class="pure-veg-dot"></div> <b>Creamy Pesto Pasta</b> - ₹180</p>
-            <p><div class="pure-veg-dot"></div> <b>Veggie Delight Burger</b> - ₹140</p>
-            <p><div class="pure-veg-dot"></div> <b>Peri-Peri Fries</b> - ₹90</p>
-        </div>
+<div class="menu-container">
+    <div class="menu-card">
+        <h3>🇮🇳 Indian Comforts</h3>
+        <div class="item">Paneer Butter Masala <span>₹220</span></div>
+        <div class="item">Mom's Makhani Dal <span>₹180</span></div>
+        <div class="item">Garlic Butter Naan <span>₹60</span></div>
+    </div>
 
-        <div class="category-card" style="border-left-color: var(--accent);">
-            <h3>✨ Signature Fusion</h3>
-            <p><div class="pure-veg-dot"></div> <b>Paneer Makhani Lasagna</b> - ₹240</p>
-            <p><div class="pure-veg-dot"></div> <b>Tandoori Cheese Tacos</b> - ₹190</p>
-        </div>
+    <div class="menu-card">
+        <h3>🍔 Western Bites</h3>
+        <div class="item">Truffle Mushroom Pasta <span>₹280</span></div>
+        <div class="item">Exotic Veggie Pizza <span>₹320</span></div>
+        <div class="item">Peri-Peri Cheese Fries <span>₹140</span></div>
+    </div>
+
+    <div class="menu-card" style="border-top: 4px solid var(--accent);">
+        <h3>✨ Fusion Signatures</h3>
+        <div class="item">Paneer Makhani Lasagna <span>₹350</span></div>
+        <div class="item">Tandoori Paneer Tacos <span>₹240</span></div>
+        <div class="item">Desi-Style Mac & Cheese <span>₹210</span></div>
     </div>
 </div>
 
 <footer>
-    <p>Located in Indore | Open 11 AM - 11 PM</p>
-    <p><b>Order Direct: +91 XXXXX XXXXX</b></p>
-    <div style="margin-top: 20px;">
-        <a href="#" style="color: white; margin: 0 10px;">Zomato</a> | 
-        <a href="#" style="color: white; margin: 0 10px;">Swiggy</a>
-    </div>
+    <p>&copy; 2026 Ghar Ka Swad Cloud Kitchen. All Rights Reserved.</p>
+    <p>Indore, MP | Follow us on Instagram</p>
 </footer>
+
+<a href="https://wa.me/91XXXXXXXXXX?text=Hi!%20I'd%20like%20to%20place%20an%20order%20from%20Ghar%20Ka%20Swad." class="whatsapp-float" target="_blank">
+    <i>💬</i> ORDER ON WHATSAPP
+</a>
 
 </body>
 </html>
